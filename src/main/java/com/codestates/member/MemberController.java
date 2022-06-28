@@ -41,6 +41,31 @@ public class MemberController {
 
 
     //---------------- 여기서 부터 아래에 코드를 구현하세요! -------------------//
+
+
+    @PatchMapping("/{member-id}")
+    public ResponseEntity patchMember(@PathVariable("member-id") long memberId, @RequestParam String phone) {
+        Map<String, Object> map = new HashMap<>();
+        map.put("memberId", memberId);
+        map.put("email", "hgd@gmail.com");
+        map.put("name", "홍길동");
+        map.put("phone", phone);
+
+
+        return new ResponseEntity<>(HttpStatus.OK);
+
+
+    }
+    @DeleteMapping("/{member-id}")
+    public ResponseEntity deleteMember(@PathVariable("member-id") long memberId) {
+
+        return new ResponseEntity(HttpStatus.OK);
+
+    }
+    // memberId가 RequestParam에 추가
+    //memberId는 URI에 있어야 함
+
+
     // 1. 회원 정보 수정을 위한 핸들러 메서드 구현
     // 2. 회원 정보 삭제를 위한 핸들러 메서드 구현
 
